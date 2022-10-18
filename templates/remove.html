@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>Remove an Employee</h2>
+<br>
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Select Employee to be removed
+    </button>
+    <ul class="dropdown-menu">
+        {% for emp in emps %}
+      <li><a class="dropdown-item" href="/remove/{{emp.id}}">{{emp.first_name}} {{emp.last_name}}</a></li>
+        {% endfor %}
+      </ul>
+  </div>
+
+{% endblock %}
+
+{% if messages %}
+{% block script %}
+{% for message in messages %}
+<script>alert("{{message}}")</script>
+{% endfor %}
+{% endblock script %}
+{% endif %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h2>Add an Employee</h2>
+
+<form action="/add" method="post">
+    {% csrf_token %}
+    <label for="first_name">First Name</label><br>
+    <input type="text" id="first_name" name="first_name" value="{{first_name}}"><br>
+
+    <label for="last_name">Last Name</label><br>
+    <input type="text" id="last_name" name="last_name" value="{{last_name}}"><br>
+
+    <label for="salary">Salary</label><br>
+    <input type="number" id="salary" name="salary" value="{{salary}}"><br>
+
+    <label for="dept">Department</label><br>
+    <input type="text" id="dept" name="dept" value="{{dept}}"><br>
+
+    <label for="role">Role</label><br>
+    <input type="text" id="role" name="role" value="{{role}}"><br>
+
+    <label for="bonous">Bonous</label><br>
+    <input type="number" id="bonous" name="bonous" value="{{bonous}}"><br>
+
+    <label for="phone">Phone Number</label><br>
+    <input type="number" id="phone" name="phone" value="{{phone}}"><br>
+
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock body %}
+
+{% if messages %}
+{% block script %}
+{% for message in messages %}
+<script>alert("{{message}}")</script>
+{% endfor %}
+{% endblock script %}
+{% endif %}
